@@ -88,6 +88,10 @@ namespace DemoMVC.Controllers
             employeeListViewModel.Employees = vmEmployees;
             employeeListViewModel.UserName = User.Identity.Name; //New Lin;
 
+            employeeListViewModel.FooterData = new FooterViewModel();
+            employeeListViewModel.FooterData.CompanyName = "StepByStepMVC";//Can be set to dynamic value
+            employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+
             return View("Index", employeeListViewModel);
         }
 

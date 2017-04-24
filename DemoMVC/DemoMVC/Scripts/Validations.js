@@ -12,8 +12,8 @@ function IsFirstNameInValid() {
     else { return ""; }
 }
 function IsLastNameInValid() {
-    if (document.getElementById('TxtLName').value.length >= 5) {
-        return 'Last Name should not contain more than 5 character';
+    if (document.getElementById('TxtLName').value.length >= 7) {
+        return 'Last Name should not contain more than 7 character';
     }
     else { return ""; }
 }
