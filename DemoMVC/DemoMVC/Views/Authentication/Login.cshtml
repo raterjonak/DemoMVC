@@ -9,6 +9,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body>
     <div> 
@@ -18,8 +21,14 @@
 
             @Html.LabelFor(c => c.UserName)
 
-            @Html.TextBoxFor(x => x.UserName)  
-                
+            @Html.TextBoxFor(x => x.UserName) 
+            <br/>
+            @Html.ValidationMessageFor(x => x.UserName)
+
+    @*<input data-val="true" data-val-length="UserName length should be between 2 and 7" data-val-length-max="7"
+      data-val-length-min="2" id="UserName" name="UserName" type="text" value="" />
+     <span class="field-validation-error" data-valmsg-for="UserName" data-valmsg-replace="true"> </span>*@
+
             <br />
 
             @Html.LabelFor(c => c.Password)
