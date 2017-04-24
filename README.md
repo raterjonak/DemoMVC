@@ -1,2 +1,2 @@
 # DemoMVC
-# A Demo project for learninh MVC 5.
+# A Demo project for learning MVC 5.
