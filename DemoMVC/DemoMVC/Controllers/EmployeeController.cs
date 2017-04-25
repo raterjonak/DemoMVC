@@ -1,4 +1,5 @@
-﻿using DemoMVC.Models;
+﻿using DemoMVC.Filters;
+using DemoMVC.Models;
 using DemoMVC.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -95,6 +96,7 @@ namespace DemoMVC.Controllers
             return View("Index", employeeListViewModel);
         }
 
+        [AdminFilter]
         public ActionResult AddNew()
         {
             return View("CreateEmployee", new CreateEmployeeViewModel());
@@ -120,6 +122,7 @@ namespace DemoMVC.Controllers
         //    return new EmptyResult();
         //}
 
+        [AdminFilter]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
             switch (BtnSubmit)
@@ -152,5 +155,17 @@ namespace DemoMVC.Controllers
             }
             return new EmptyResult();
         }
+
+        public ActionResult GetAddNewLink()
+{
+    if (Convert.ToBoolean(Session["IsAdmin"]))
+    {
+        return PartialView("AddNewLink");
+    }
+    else
+    {
+        return new EmptyResult();
+    }
+}
     }
 }

@@ -53,7 +53,13 @@
         <a href="/Authentication/Logout">Logout</a></div>
         <hr />
 
-        <a href ="/Employee/AddNew">Add New</a>
+ @*Add  New link is modified for athenticate user.*@
+
+        @*<a href ="/Employee/AddNew">Add New</a>*@
+
+        @{
+            Html.RenderAction("GetAddNewLink");
+        }
 
             <table border="1">
                 <tr>

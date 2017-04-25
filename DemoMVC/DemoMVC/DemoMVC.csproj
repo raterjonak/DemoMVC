@@ -121,8 +121,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="DataAccessLayer\SalesERPDAL.cs" />
+    <Compile Include="Filters\AdminFilter.cs" />
     <Compile Include="Models\EmployeeBusinessLayer.cs" />
     <Compile Include="Models\UserDetails.cs" />
+    <Compile Include="Models\UserStatus.cs" />
     <Compile Include="Validations\FirstNameValidation.cs" />
     <Compile Include="ViewModels\CreateEmployeeViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListViewModel.cs" />
@@ -177,6 +179,7 @@
     <Content Include="Views\Employee\CreateEmployee.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Employee\AddNewLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
