@@ -5,10 +5,12 @@ using System.Web;
 
 namespace DemoMVC.ViewModels
 {
-    public class EmployeeListViewModel
+    public class EmployeeListViewModel:BaseViewModel
     {
        public List<EmployeeViewModel> Employees { get; set; }
-       public string UserName { get; set; }
-       public FooterViewModel FooterData { get; set; }//New Property
+      
+    //Replace UserName and FooterViewModer properties by layOut page        
+        //public string UserName { get; set; }
+        //public FooterViewModel FooterData { get; set; }
     }
 }

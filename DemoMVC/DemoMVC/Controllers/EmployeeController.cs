@@ -39,6 +39,7 @@ namespace DemoMVC.Controllers
             return c;
         }
         [Authorize]
+        [HeaderFooterFilter]
         public ActionResult Index()
         {
             //Employee emp = new Employee();
@@ -87,19 +88,25 @@ namespace DemoMVC.Controllers
 
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
             employeeListViewModel.Employees = vmEmployees;
-            employeeListViewModel.UserName = User.Identity.Name; //New Lin;
+            //employeeListViewModel.UserName = User.Identity.Name; //New Lin;
 
-            employeeListViewModel.FooterData = new FooterViewModel();
-            employeeListViewModel.FooterData.CompanyName = "StepByStepMVC";//Can be set to dynamic value
-            employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            //employeeListViewModel.FooterData = new FooterViewModel();
+            //employeeListViewModel.FooterData.CompanyName = "StepByStepMVC";//Can be set to dynamic value
+            //employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
 
             return View("Index", employeeListViewModel);
         }
 
         [AdminFilter]
+        [HeaderFooterFilter]
         public ActionResult AddNew()
         {
-            return View("CreateEmployee", new CreateEmployeeViewModel());
+            CreateEmployeeViewModel employeeListViewModel = new CreateEmployeeViewModel();
+            //employeeListViewModel.FooterData = new FooterViewModel();
+            //employeeListViewModel.FooterData.CompanyName = "StepByStepMVC";//Can be set to dynamic value
+            //employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            //employeeListViewModel.UserName = User.Identity.Name;
+            return View("CreateEmployee", employeeListViewModel);
         }
 
 
@@ -123,6 +130,7 @@ namespace DemoMVC.Controllers
         //}
 
         [AdminFilter]
+        [HeaderFooterFilter]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
             switch (BtnSubmit)
@@ -148,6 +156,10 @@ namespace DemoMVC.Controllers
                         {
                             vm.Salary = ModelState["Salary"].Value.AttemptedValue;
                         }
+                        //vm.FooterData = new FooterViewModel();
+                        //vm.FooterData.CompanyName = "StepByStepSchools";//Can be set to dynamic value
+                        //vm.FooterData.Year = DateTime.Now.Year.ToString();
+                        //vm.UserName = User.Identity.Name; //New Line
                         return View("CreateEmployee", vm); // Day 4 Change - Passing e here
                     }
                 case "Cancel":

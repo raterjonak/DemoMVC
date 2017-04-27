@@ -1,26 +1,25 @@
-﻿
+﻿@using DemoMVC.ViewModels
+@model CreateEmployeeViewModel
+
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/MyLayout.cshtml";
 }
 
-@using DemoMVC.ViewModels
-@model CreateEmployeeViewModel
-<!DOCTYPE html>
+@section TitleSection{
+    CreateEmployee
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>CreateEmployee</title>
+@section HeaderSection{
     <script src="~/Scripts/Validations.js"></script>
     <script>
-    function ResetForm() {
-        document.getElementById('TxtFName').value = "";
-        document.getElementById('TxtLName').value = "";
-        document.getElementById('TxtSalary').value = "";
-    }
+        function ResetForm() {
+            document.getElementById('TxtFName').value = "";
+            document.getElementById('TxtLName').value = "";
+            document.getElementById('TxtSalary').value = "";
+        }
     </script>
-</head>
-<body>
+}
+@section ContentBody{ 
     <div>
         <form action="/Employee/SaveEmployee" method="post">
             @*First Name: <input type="text" id="TxtFName" name="FirstName" value="" /><br />
@@ -83,5 +82,4 @@
             </table>
         </form>
     </div>
-</body>
-</html>
+}

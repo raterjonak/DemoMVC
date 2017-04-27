@@ -1,6 +1,8 @@
-﻿
+﻿@using DemoMVC.ViewModels
+@model EmployeeListViewModel
+
 @{
-    Layout = null;    
+    Layout = "~/Views/Shared/MyLayout.cshtml";
 }
 
 @*@model DemoMVC.Models.Employee*@
@@ -8,10 +10,7 @@
 @*@using DemoMVC.Models
 @model Employee*@
 
-@using DemoMVC.ViewModels
-@model EmployeeListViewModel
-
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 
 <html>
 <head>
@@ -19,7 +18,7 @@
     <title>MyView</title>
 </head>
 <body>
-    <div> 
+    <div>*@ 
         @{
             //DemoMVC.Models.Employee emp=(DemoMVC.Models.Employee) ViewData["Employee"];
             //DemoMVC.Models.Employee emp = (DemoMVC.Models.Employee)ViewBag.Employee;
@@ -35,8 +34,8 @@
         @*@{ Response.Write(emp.FirstName);}*@
 
 
-        Hello World, <hr />
-        <b>Employee Details </b><br />
+        @*Hello World, <hr />
+        <b>Employee Details </b><br />*@
 
         @*Employee Name:@Model.EmployeeName <br />
         @if (@Model.Salary > 15000)
@@ -47,17 +46,18 @@
         { 
         <span style="background-color:purple">Employee Salary:@Model.Salary.ToString("C");</span>
         }*@
-
+       
+         @*foloowing codes are replace with Mylayout page.
         <div style="text-align:right"> Hello, @Model.UserName 
 
         <a href="/Authentication/Logout">Logout</a></div>
-        <hr />
+        <hr />*@
 
  @*Add  New link is modified for athenticate user.*@
 
         @*<a href ="/Employee/AddNew">Add New</a>*@
 
-        @{
+        @*@{
             Html.RenderAction("GetAddNewLink");
         }
 
@@ -77,10 +77,34 @@
 
         @{
             Html.RenderPartial("Footer", Model.FooterData);
-        }
+        }*@
 
 
-</div>
+@*</div>
 </body>
-</html>
+</html>*@
+
+@section TitleSection{
+    MyView
+}
+@section ContentBody{
+    <div>
+        @{
+            Html.RenderAction("GetAddNewLink");
+        }
+        <table border="1">
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (EmployeeViewModel item in Model.Employees)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color:@item.SalaryColor">@item.Salary</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
  
